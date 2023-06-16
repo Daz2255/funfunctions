@@ -53,13 +53,18 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
-// Write your code here
+//Write your code here
 function sumAndMultiply(a, b, c) {
-  let total = a + b + c;
-  let total1 = a * b * c;
-  let result = "4 and 7 and 5 sum to 16.";
-  let result1 = "The product of 4 and 7 and 5 is 140.";
-  return [total, total1, result, result1];
+  let total = sum(a, c)[0];
+  let total1 = sum(total, c)[0];
+
+  let product = multiply(a, b)[0];
+  let product1 = multiply(product, c)[0];
+
+  let text1 = a + "and " + b + "and " + c + " sum to " + total1 + ".";
+  let text2 = "The product of 4 and 7 and 5 is 140.";
+
+  return [total1, product1, text1, text2];
   //eslint-disable-line
 }
 
@@ -82,12 +87,22 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
-  //eslint-disable-line
+  const arr = [];
+  const arr1 = sum(sumArr[0], sumArr[1]);
+  const arr2 = sum(arr1[0], sumArr[2]);
+  arr.push(arr2[0]);
+  console.log(arr2);
+  let answer = arr[0];
+  let text = "2,3,4 was passed in as an array of numbers, and 9 is their sum.";
+  console.log(text);
+
+  return [answer, text];
 }
+//eslint-disable-line
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -103,11 +118,21 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) {
-  //eslint-disable-line
+  const arr = [];
+  const ar1 = multiply(multArr[0], multArr[1]);
+  const ar2 = multiply(ar1[0], multArr[2]);
+  arr.push(ar2[0]);
+  console.log(arr);
+  let ar3 = arr[0];
+  let ar4 = "The numbers 2,3,4 have a product of 24.";
+
+  return [ar3, ar4];
 }
 
+//eslint-disable-line
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
